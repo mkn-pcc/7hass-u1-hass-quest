@@ -1,65 +1,57 @@
-/* DIALOGUE SYSTEM - Pinned to Bottom Right */
+:root { --text-color: #332211; }
+
+body { margin: 0; background: #1a1a1a; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; font-family: sans-serif; }
+
+#game-container {
+    width: 1280px; height: 720px; position: relative; background: #000; overflow: hidden;
+}
+
+#scene-bg { width: 100%; height: 100%; background-size: cover; background-position: center; position: absolute; z-index: 1; }
+
+#ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; pointer-events: none; }
+
+/* RE-ENABLE CLICKS FOR UI */
+.img-btn, .hotspot, .modal, .quiz-btn, #dialogue-box-wrapper { pointer-events: auto; }
+
+/* DIALOGUE POSITIONING */
 #dialogue-container {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 400px; /* Tall enough for the NPC */
-    display: flex;
-    justify-content: flex-end; /* Push content to the right */
-    align-items: flex-end;
-    pointer-events: none; /* Don't block hotspots behind the empty space */
+    position: absolute; bottom: 0; right: 0; width: 100%; height: 450px;
+    display: flex; justify-content: flex-end; align-items: flex-end; z-index: 20;
 }
 
 #npc-portrait {
-    height: 100%; /* Scaling character to container height */
-    width: auto;
-    z-index: 10;
-    margin-right: -50px; /* Slight overlap with the box for style */
-    pointer-events: none;
+    height: 100%; width: auto; z-index: 21; margin-right: -40px; 
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
 }
 
 #dialogue-box-wrapper {
-    position: relative;
-    width: 850px; /* Fixed width for the box */
-    margin-right: 40px;
-    margin-bottom: 20px;
-    z-index: 11;
-    pointer-events: auto; /* Re-enable clicks for the "Next" button */
+    position: relative; width: 850px; margin-right: 40px; margin-bottom: 20px; z-index: 22;
 }
 
-#dialogue-bg {
-    width: 100%;
-    filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.3));
-}
+#dialogue-bg { width: 100%; }
 
-#nameplate {
-    position: absolute;
-    top: -35px;
-    left: 30px;
-    width: 220px;
-    z-index: 12;
-}
-
-#npc-name {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-    z-index: 13;
-    white-space: nowrap;
-}
+#nameplate { position: absolute; top: -35px; left: 40px; width: 220px; display: flex; align-items: center; justify-content: center; }
+#nameplate img { width: 100%; }
+#npc-name { position: absolute; color: white; font-weight: bold; font-size: 1.2rem; text-transform: uppercase; }
 
 #dialogue-text {
-    position: absolute;
-    top: 50px;
-    left: 60px;
-    width: 730px;
-    font-size: 1.4rem;
-    color: #332211;
-    line-height: 1.3;
-    z-index: 14;
+    position: absolute; top: 45px; left: 55px; width: 740px;
+    font-size: 1.4rem; color: var(--text-color); line-height: 1.3;
 }
+
+#btn-next { position: absolute; bottom: 15px; right: 30px; width: 120px; }
+
+/* HOTSPOTS */
+#hotspot-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; }
+.hotspot {
+    position: absolute; width: 70px; height: 70px;
+    background: url('assets/ui/hotspot_icon.png') no-repeat center/contain;
+    background-color: rgba(255,255,255,0.2); border-radius: 50%; cursor: pointer;
+}
+
+/* MODALS */
+.modal { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 100; }
+.modal-content { background: #fdf6e3; padding: 30px; border-radius: 10px; max-width: 800px; border: 4px solid #8b5a2b; text-align: center; }
+.modal-content img { max-width: 100%; max-height: 300px; margin: 15px 0; }
+.hidden { display: none !important; }
+.img-btn img { width: 140px; }
