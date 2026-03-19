@@ -5,9 +5,9 @@
     "guideId": "indigenous_cultures_head",
     "background": "assets/backgrounds/case_indigenous_cultures_bg.png",
     "hotspots": [
-      { "x": "10%", "y": "20%", "sourceId": "case1_source1" },
-      { "x": "40%", "y": "30%", "sourceId": "case1_source2" },
-      { "x": "15%", "y": "50%", "sourceId": "case1_source3" }
+      { "x": "15%", "y": "20%", "sourceId": "case1_source1" },
+      { "x": "50%", "y": "30%", "sourceId": "case1_source2" },
+      { "x": "80%", "y": "50%", "sourceId": "case1_source3" }
     ],
     "completionQuestion": {
       "question": "Based on the sources in this gallery, which conclusion is best supported?",
@@ -26,8 +26,8 @@
     "background": "assets/backgrounds/case_trade_bg.png",
     "hotspots": [
       { "x": "20%", "y": "25%", "sourceId": "case2_source1" },
-      { "x": "45%", "y": "35%", "sourceId": "case2_source2" },
-      { "x": "15%", "y": "45%", "sourceId": "case2_source3" }
+      { "x": "55%", "y": "35%", "sourceId": "case2_source2" },
+      { "x": "75%", "y": "45%", "sourceId": "case2_source3" }
     ],
     "completionQuestion": {
       "question": "What is the strongest conclusion you can draw from these three sources?",
@@ -46,8 +46,8 @@
     "background": "assets/backgrounds/case_torres_strait_bg.png",
     "hotspots": [
       { "x": "25%", "y": "20%", "sourceId": "case3_source1" },
-      { "x": "40%", "y": "30%", "sourceId": "case3_source2" },
-      { "x": "10%", "y": "55%", "sourceId": "case3_source3" }
+      { "x": "60%", "y": "30%", "sourceId": "case3_source2" },
+      { "x": "85%", "y": "55%", "sourceId": "case3_source3" }
     ],
     "completionQuestion": {
       "question": "Taken together, what do these sources suggest about Torres Strait Islander life and identity?",
