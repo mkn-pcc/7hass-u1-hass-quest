@@ -258,6 +258,10 @@ function openSource(sourceId) {
 
     // Clear previous selections visually
     document.querySelectorAll('.skill-btn').forEach(b => b.classList.remove('selected'));
+    
+    // FIX: Force the modal content to scroll to the top
+    document.querySelector('#source-modal .modal-content').scrollTop = 0;
+
     el.sourceModal.classList.remove('hidden');
 }
 
@@ -325,6 +329,9 @@ function showQuiz() {
         optCont.appendChild(b);
     });
     
+    // FIX: Force the quiz modal content to scroll to the top
+    document.querySelector('#quiz-modal .modal-content').scrollTop = 0;
+
     el.quizModal.classList.remove('hidden');
 }
 
