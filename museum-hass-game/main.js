@@ -6,7 +6,7 @@ let state = {
     viewedSources: [],
     dialogueIndex: 0,
     currentDialogueSet: null,
-    currentAnalysis: { type: null, cat: null },
+    currentAnalysis: { type: null, cat: null, insight: null },
     data: { cases: null, dialogue: null, sources: null }
 };
 
@@ -29,7 +29,6 @@ const el = {
 
 // --- INITIALIZATION ---
 async function init() {
-    console.log("Initializing HASS Skill Quest...");
     try {
         const [casesRes, dialogueRes, sourcesRes] = await Promise.all([
             fetch('data/cases.json'),
@@ -37,26 +36,23 @@ async function init() {
             fetch('data/sources.json')
         ]);
 
-        if (!casesRes.ok || !dialogueRes.ok || !sourcesRes.ok) {
-            throw new Error("JSON files not found. Check 'data' folder and filenames.");
-        }
+        if (!casesRes.ok || !dialogueRes.ok || !sourcesRes.ok) throw new Error("File load failed");
 
         state.data.cases = await casesRes.json();
         state.data.dialogue = await dialogueRes.json();
         state.data.sources = await sourcesRes.json();
         
-        console.log("Data loaded successfully.");
         setupEventListeners();
         showTitle();
     } catch (err) {
-        console.error("Load Error:", err.message);
-        alert("CRITICAL: Game data failed to load. Ensure 'data' folder exists with .json files.");
+        console.error(err);
+        alert("Load Error: Check console.");
     }
 }
 
 function setupEventListeners() {
     document.getElementById('btn-start').onclick = startToHub;
-    document.getElementById('btn-help').onclick = () => alert("Investigate 3 cases. In each room, find 3 sources, classify them as Primary/Secondary and Social/Environmental/Cultural, then answer the final question.");
+    document.getElementById('btn-help').onclick = () => alert("Analyze 3 sources in each exhibit to complete the case file.");
     el.btnNext.onclick = advanceDialogue;
     document.getElementById('btn-close-source').onclick = closeSource;
     document.getElementById('btn-replay').onclick = () => location.reload();
@@ -69,7 +65,6 @@ function showTitle() {
 
 function startToHub() {
     state.currentScene = 'hub';
-    state.activeCase = null;
     el.title.classList.add('hidden');
     el.progress.classList.remove('hidden');
     renderHub();
@@ -80,7 +75,6 @@ function renderHub() {
     el.hotspots.innerHTML = '';
     el.hotspots.classList.remove('hidden');
     el.dialogue.classList.remove('hidden');
-    
     setDialogue('curator', state.completedCases.length === 0 ? 'hub_intro' : 'hub_return');
 
     state.data.cases.forEach((c, idx) => {
@@ -88,7 +82,6 @@ function renderHub() {
         btn.className = 'hotspot';
         btn.style.left = `${20 + (idx * 25)}%`;
         btn.style.top = `55%`;
-        
         if (state.completedCases.includes(c.id)) {
             btn.style.filter = 'grayscale(1) brightness(0.5)';
             btn.innerHTML = `<img src="assets/ui/case_complete_stamp.png" style="width:100%">`;
@@ -148,7 +141,7 @@ function advanceDialogue() {
     updateDialogueBox();
 }
 
-// --- SKILL ANALYSIS & SOURCES ---
+// --- SKILL ANALYSIS ---
 function selectSkill(type, value, btn) {
     const parent = btn.parentElement;
     parent.querySelectorAll('.skill-btn').forEach(b => b.classList.remove('selected'));
@@ -161,7 +154,7 @@ function openSource(sourceId) {
     if (!source) return;
 
     state.activeSource = source;
-    state.currentAnalysis = { type: null, cat: null };
+    state.currentAnalysis = { type: null, cat: null, insight: null };
     
     document.getElementById('source-title').innerText = source.title;
     const imgCont = document.getElementById('source-image-container');
@@ -169,24 +162,43 @@ function openSource(sourceId) {
     document.getElementById('source-description').innerText = source.caption;
     document.getElementById('source-prompt').innerText = source.prompt;
 
-    // Reset buttons
+    // Render Insights
+    const analysisArea = document.getElementById('analysis-ui');
+    const insightSection = document.createElement('div');
+    insightSection.id = "insight-section";
+    insightSection.innerHTML = `
+        <p><strong>3. Content Insight:</strong> ${source.insightQuestion}</p>
+        <div class="analysis-row" id="insight-buttons"></div>
+    `;
+    
+    // Clean up old sections
+    const oldInsight = document.getElementById('insight-section');
+    if (oldInsight) oldInsight.remove();
+    analysisArea.appendChild(insightSection);
+
+    source.insights.forEach(opt => {
+        const b = document.createElement('button');
+        b.className = 'skill-btn';
+        b.innerText = opt;
+        b.onclick = () => selectSkill('insight', opt, b);
+        document.getElementById('insight-buttons').appendChild(b);
+    });
+
     document.querySelectorAll('.skill-btn').forEach(b => b.classList.remove('selected'));
     el.sourceModal.classList.remove('hidden');
 }
 
 function closeSource() {
     const s = state.activeSource;
-    if (!state.currentAnalysis.type || !state.currentAnalysis.cat) {
-        alert("Researcher! You must classify the Source Type and HASS Category before proceeding.");
+    if (!state.currentAnalysis.type || !state.currentAnalysis.cat || !state.currentAnalysis.insight) {
+        alert("Researcher! Complete all 3 analysis steps first.");
         return;
     }
 
-    // Feedback
-    const isTypeRight = state.currentAnalysis.type === s.correctType;
-    const isCatRight = s.correctCats.includes(state.currentAnalysis.cat);
-
-    if (!isTypeRight || !isCatRight) {
-        alert(`Analysis Error:\n${!isTypeRight ? "- This is a " + s.correctType + " source.\n" : ""}${!isCatRight ? "- This belongs in the " + s.correctCats[0] + " category.\n" : ""}Check the details and try again.`);
+    if (state.currentAnalysis.type !== s.correctType || 
+        !s.correctCats.includes(state.currentAnalysis.cat) || 
+        state.currentAnalysis.insight !== s.correctInsight) {
+        alert("Your analysis doesn't quite match the evidence. Check the text and try again!");
         return;
     }
 
@@ -207,13 +219,13 @@ function showQuiz() {
         b.innerText = opt;
         b.onclick = () => {
             if (opt === quiz.correct) {
-                alert("Correct interpretation!");
+                alert("Correct!");
                 state.completedCases.push(state.activeCase.id);
                 el.quizModal.classList.add('hidden');
                 el.progressText.innerText = `Cases Complete: ${state.completedCases.length}/3`;
                 renderHub();
             } else {
-                alert("That doesn't align with the evidence. Try again.");
+                alert("Incorrect. Re-examine the evidence.");
             }
         };
         optCont.appendChild(b);
