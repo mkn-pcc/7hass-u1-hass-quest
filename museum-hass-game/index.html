@@ -16,6 +16,8 @@
         </div>
 
         <div id="ui-layer">
+            <img id="dev-credit" src="assets/ui/credit.png" alt="Game Credit">
+            
             <div id="progress-bar" class="hidden">
                 <div id="progress-text">Cases Complete: 0/3</div>
             </div>
@@ -46,8 +48,8 @@
             <div id="source-modal" class="modal hidden">
                 <div class="modal-content">
                     <h2 id="source-title"></h2>
-                    <div id="source-image-container"></div>
-                    <div id="source-description"></div>
+                    
+                    <div id="source-content-wrapper"></div>
                     
                     <div id="analysis-ui">
                         <hr>
@@ -69,7 +71,11 @@
                         <strong>Interpretation Prompt:</strong>
                         <p id="source-prompt"></p>
                     </div>
-                    <button id="btn-close-source" class="img-btn"><img src="assets/ui/text_continue.png" alt="Done"></button>
+                    
+                    <div class="modal-buttons">
+                        <button id="btn-dismiss-source" class="img-btn"><img src="assets/ui/text_return.png" alt="Return"></button>
+                        <button id="btn-close-source" class="img-btn"><img src="assets/ui/text_continue.png" alt="Done"></button>
+                    </div>
                 </div>
             </div>
 
