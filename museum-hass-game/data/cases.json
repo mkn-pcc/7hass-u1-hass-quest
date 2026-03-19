@@ -5,18 +5,18 @@
     "guideId": "indigenous_cultures_head",
     "background": "assets/backgrounds/case_indigenous_cultures_bg.png",
     "hotspots": [
-      {"x": "15%", "y": "30%", "sourceId": "case1_source1"},
-      {"x": "40%", "y": "20%", "sourceId": "case1_source2"},
-      {"x": "20%", "y": "55%", "sourceId": "case1_source3"}
+      {"x": "10%", "y": "20%", "sourceId": "case1_source1"},
+      {"x": "40%", "y": "30%", "sourceId": "case1_source2"},
+      {"x": "15%", "y": "50%", "sourceId": "case1_source3"}
     ],
     "completionQuestion": {
       "question": "Which conclusion is best supported by the three sources in this case?",
       "options": [
-        "A. Aboriginal and Torres Strait Islander peoples all shared exactly the same culture.",
-        "B. Aboriginal and Torres Strait Islander cultures are diverse, deeply connected to Country, and continue through storytelling.",
-        "C. Indigenous culture is mainly important because it is part of the distant past."
+        "A. Aboriginal and Torres Strait Islander cultures are diverse and connected to Country through storytelling and respect.",
+        "B. Indigenous culture is mainly important as part of the distant past.",
+        "C. All First Nations groups shared the same customs across Australia."
       ],
-      "correct": "B. Aboriginal and Torres Strait Islander cultures are diverse, deeply connected to Country, and continue through storytelling."
+      "correct": "A. Aboriginal and Torres Strait Islander cultures are diverse and connected to Country through storytelling and respect."
     }
   },
   {
@@ -27,16 +27,16 @@
     "hotspots": [
       {"x": "20%", "y": "25%", "sourceId": "case2_source1"},
       {"x": "45%", "y": "35%", "sourceId": "case2_source2"},
-      {"x": "10%", "y": "50%", "sourceId": "case2_source3"}
+      {"x": "15%", "y": "45%", "sourceId": "case2_source3"}
     ],
     "completionQuestion": {
-      "question": "Which conclusion is best supported by the three sources in this case?",
+      "question": "Which conclusion is best supported by the trade evidence found here?",
       "options": [
-        "A. Trade between First Nations peoples was rare and mostly accidental.",
-        "B. First Nations trade networks were complex, long-distance, and connected people within Australia and beyond.",
-        "C. Only European settlement created meaningful trade in Australia."
+        "A. Trade was accidental and limited to immediate neighbours.",
+        "B. First Nations trade networks were complex, spanning long distances within and beyond Australia.",
+        "C. Trade only became important after European arrival."
       ],
-      "correct": "B. First Nations trade networks were complex, long-distance, and connected people within Australia and beyond."
+      "correct": "B. First Nations trade networks were complex, spanning long distances within and beyond Australia."
     }
   },
   {
@@ -46,17 +46,17 @@
     "background": "assets/backgrounds/case_torres_strait_bg.png",
     "hotspots": [
       {"x": "25%", "y": "20%", "sourceId": "case3_source1"},
-      {"x": "50%", "y": "30%", "sourceId": "case3_source2"},
-      {"x": "15%", "y": "55%", "sourceId": "case3_source3"}
+      {"x": "40%", "y": "30%", "sourceId": "case3_source2"},
+      {"x": "10%", "y": "55%", "sourceId": "case3_source3"}
     ],
     "completionQuestion": {
-      "question": "Which conclusion is best supported by the three sources in this case?",
+      "question": "What core characteristic of Torres Strait Islander culture is proven by these sources?",
       "options": [
-        "A. Torres Strait Islander culture was not strongly shaped by the sea.",
-        "B. Torres Strait Islander people developed a distinct culture connected to sea, navigation, and ceremony.",
-        "C. Torres Strait Islander history can be understood only through one symbol."
+        "A. Their culture is primarily land-based with little connection to the sea.",
+        "B. They developed a unique culture deeply shaped by seafaring, navigation, and spiritual totems.",
+        "C. Their identity is defined by a single modern symbol."
       ],
-      "correct": "B. Torres Strait Islander people developed a distinct culture connected to sea, navigation, and ceremony."
+      "correct": "B. They developed a unique culture deeply shaped by seafaring, navigation, and spiritual totems."
     }
   }
 ]
