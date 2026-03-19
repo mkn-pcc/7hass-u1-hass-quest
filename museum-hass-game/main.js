@@ -82,10 +82,18 @@ function renderHub(skipDialogue = false) {
     el.hotspots.innerHTML = '';
     el.hotspots.classList.remove('hidden');
     
-    // Only show dialogue if we aren't skipping it
+    // Determine which dialogue to show
     if (!skipDialogue) {
         el.dialogue.classList.remove('hidden');
-        setDialogue('curator', state.completedCases.length === 0 ? 'hub_intro' : 'hub_return');
+        let dialogKey = 'hub_return';
+        
+        if (state.completedCases.length === 0) {
+            dialogKey = 'hub_intro';
+        } else if (state.completedCases.length >= state.data.cases.length) {
+            dialogKey = 'hub_complete';
+        }
+        
+        setDialogue('curator', dialogKey);
     } else {
         el.dialogue.classList.add('hidden');
     }
@@ -138,7 +146,7 @@ function enterCase(caseData) {
         h.className = 'hotspot';
         h.style.left = hs.x;
         h.style.top = hs.y;
-        h.dataset.sourceId = hs.sourceId; // Store ID for visual tracking later
+        h.dataset.sourceId = hs.sourceId; 
         h.onclick = () => openSource(hs.sourceId);
         el.hotspots.appendChild(h);
     });
@@ -150,10 +158,7 @@ function enterCase(caseData) {
     backBtn.style.position = 'absolute';
     backBtn.style.top = '20px';
     backBtn.style.right = '20px';
-    
-    // Pass 'true' to skip the dialogue when returning from this button!
     backBtn.onclick = () => renderHub(true); 
-    
     el.hotspots.appendChild(backBtn);
 }
 
@@ -169,7 +174,6 @@ function setDialogue(npcId, setKey, caseId = null) {
     state.currentDialogueSet = set;
     state.dialogueIndex = 0;
     
-    // Look up the real name from the directory
     el.npcName.innerText = npcDirectory[npcId] || npcId.split('_')[0].toUpperCase();
     el.npcPortrait.src = `assets/portraits/${npcId}.png`;
     
@@ -219,10 +223,16 @@ function openSource(sourceId) {
     const imgCont = document.getElementById('source-image-container');
     imgCont.innerHTML = source.image ? `<img src="${source.image}">` : '';
     
-    document.getElementById('source-description').innerText = source.caption;
+    // Inject the provenance label above the caption
+    document.getElementById('source-description').innerHTML = `
+        <p style="margin-top: 0; color: var(--ui-gold); font-size: 1.1rem;">
+            <strong>Source Origin:</strong> ${source.sourceLabel || 'Unknown'}
+        </p>
+        <p>${source.caption}</p>
+    `;
+    
     document.getElementById('source-prompt').innerText = source.prompt;
 
-    // Safely inject dynamic insight buttons
     let insightSection = document.getElementById('insight-section');
     if (!insightSection) {
         insightSection = document.createElement('div');
@@ -235,7 +245,10 @@ function openSource(sourceId) {
         <div class="analysis-row" id="insight-buttons"></div>
     `;
 
-    source.insights.forEach(opt => {
+    // Shuffle the insights array so the correct answer isn't always on the left
+    const shuffledInsights = [...source.insights].sort(() => Math.random() - 0.5);
+
+    shuffledInsights.forEach(opt => {
         const b = document.createElement('button');
         b.className = 'skill-btn';
         b.innerText = opt;
@@ -257,7 +270,7 @@ function closeSource() {
         return;
     }
 
-    // Checking answers against JSON data arrays
+    // Checking answers
     if (state.currentAnalysis.type !== s.correctType || 
         !s.correctCats.includes(state.currentAnalysis.cat) || 
         state.currentAnalysis.insight !== s.correctInsight) {
@@ -268,7 +281,6 @@ function closeSource() {
     // Success! 
     el.sourceModal.classList.add('hidden');
     
-    // Log success and visually update the hotspot
     if (!state.viewedSources.includes(s.id)) {
         state.viewedSources.push(s.id);
         const completedHotspot = document.querySelector(`[data-source-id="${s.id}"]`);
@@ -278,9 +290,8 @@ function closeSource() {
         }
     }
     
-    // Check for case completion
     if (state.viewedSources.length >= 3) {
-        setTimeout(showQuiz, 600); // Slight delay so they see the modal close first
+        setTimeout(showQuiz, 600); 
     }
 }
 
@@ -292,7 +303,10 @@ function showQuiz() {
     const optCont = document.getElementById('quiz-options');
     optCont.innerHTML = '';
     
-    quiz.options.forEach(opt => {
+    // Shuffle the quiz options so the correct answer moves around
+    const shuffledOptions = [...quiz.options].sort(() => Math.random() - 0.5);
+    
+    shuffledOptions.forEach(opt => {
         const b = document.createElement('button');
         b.className = 'quiz-btn';
         b.innerText = opt;
