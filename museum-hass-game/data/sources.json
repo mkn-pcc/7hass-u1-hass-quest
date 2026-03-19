@@ -1,39 +1,83 @@
-{
-  "case1_source1": {
+[
+  {
+    "id": "case1_source1",
     "title": "AIATSIS Map",
     "type": "Image source",
     "image": "assets/sources/case1_aiatsis_map.png",
-    "caption": "Aboriginal and Torres Strait Islander Australia is made up of many different and distinct groups, each with their own culture, language and laws.",
-    "prompt": "What does this suggest about the diversity of First Nations peoples?"
+    "caption": "Aboriginal and Torres Strait Islander Australia is made up of many different and distinct groups, each with their own culture, customs, language and laws.",
+    "sourceLabel": "AIATSIS",
+    "prompt": "What does this source suggest about the diversity of Aboriginal and Torres Strait Islander peoples across Australia?"
   },
-  "case1_source2": {
-    "title": "Acknowledging Country",
+  {
+    "id": "case1_source2",
+    "title": "Why Acknowledging Country Matters",
     "type": "Text source",
     "image": null,
-    "caption": "Incorporating protocols into official meetings recognises Aboriginal and Torres Strait Islander peoples as Traditional Owners and shows respect.",
+    "caption": "Incorporating welcoming and acknowledgement protocols into official meetings recognizes Aboriginal and Torres Strait Islander peoples as the Traditional Owners and shows respect.",
+    "sourceLabel": "Reconciliation Australia",
     "prompt": "Why is acknowledging Country more than just a formal routine?"
   },
-  "case1_source3": {
+  {
+    "id": "case1_source3",
     "title": "Birds, Stories and Totems",
     "type": "Text source",
     "image": null,
-    "caption": "First Nations stories reflect a powerful worldview towards Country, valuing relationships between all living things.",
-    "prompt": "How do stories and totems help pass on culture?"
+    "caption": "Stories reflect a powerful worldview towards Country, which values and respects relationships between all living things. Many birds are revered as totems.",
+    "sourceLabel": "Australian Museum",
+    "prompt": "What does this source tell us about how stories and totems help pass on culture?"
   },
-  "case2_source1": {
+  {
+    "id": "case2_source1",
     "title": "Makasar Traders",
     "type": "Image source",
     "image": "assets/sources/case2_makasar_traders.png",
-    "caption": "From 1700, fishermen from Makassar (Indonesia) traded and worked with local Aboriginal people in northern Australia.",
-    "prompt": "What does this suggest about international connections?"
+    "caption": "From at least 1700, fishermen sailed from Makassar to northern Australia (Marege) to trade and work with local Aboriginal people.",
+    "sourceLabel": "National Museum of Australia",
+    "prompt": "What does this source suggest about connections between northern Australia and people beyond the continent?"
   },
-  "case2_source2": {
+  {
+    "id": "case2_source2",
     "title": "Trade and Transformation",
     "type": "Text source",
     "image": null,
-    "caption": "Fishermen harvested trepang (sea cucumber), processed it on shore, and traded it to China using monsoon winds.",
-    "prompt": "What details show this trade was organised and regular?"
+    "caption": "Trepang were harvested, boiled, and dried in Australia, then traded back to Makassar and eventually to China following monsoon winds.",
+    "sourceLabel": "National Museum of Australia",
+    "prompt": "What details show that Makasar trade was organised and regular?"
   },
-  "case2_source3": {
+  {
+    "id": "case2_source3",
     "title": "Long Trade Routes",
-    "type
+    "type": "Text source",
+    "image": null,
+    "caption": "Ground-edged axe heads have been found over 1000 km from their source quarry site.",
+    "sourceLabel": "Australian Museum",
+    "prompt": "What does this source suggest about the scale and sophistication of trade networks?"
+  },
+  {
+    "id": "case3_source1",
+    "title": "Torres Strait Islander Flag",
+    "type": "Text source",
+    "image": null,
+    "caption": "Green represents land, black the people, and blue the sea. The star represents peace, navigation, and the five island groups.",
+    "sourceLabel": "TSRA",
+    "prompt": "What does the symbolism of the flag suggest about Torres Strait Islander identity and life?"
+  },
+  {
+    "id": "case3_source2",
+    "title": "Crocodile Mask",
+    "type": "Image source",
+    "image": "assets/sources/case3_crocodile_mask.png",
+    "caption": "Masks made of turtle shell represent ancestors with an associated totem, frequently the crocodile.",
+    "sourceLabel": "Australian Museum",
+    "prompt": "What can this artefact suggest about ceremony, ancestors, and symbolism?"
+  },
+  {
+    "id": "case3_source3",
+    "title": "Traditional Canoe",
+    "type": "Image source",
+    "image": "assets/sources/case3_traditional_canoe.png",
+    "caption": "A Dauarti canoe from Saibai, 1931. Seafaring and navigation are core to Islander life.",
+    "sourceLabel": "Queensland Government",
+    "prompt": "What does this source suggest about travel, navigation, or daily life in the Torres Strait?"
+  }
+]
