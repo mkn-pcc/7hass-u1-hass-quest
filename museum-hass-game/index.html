@@ -25,15 +25,15 @@
             </div>
 
             <div id="dialogue-container" class="hidden">
-                <img id="npc-portrait" src="assets/portraits/curator.png" alt="NPC">
+                <img id="npc-portrait" src="" alt="NPC">
                 <div id="dialogue-box-wrapper">
                     <img src="assets/ui/dialogue_box.png" id="dialogue-bg">
                     <div id="nameplate">
                         <img src="assets/ui/nameplate.png">
-                        <span id="npc-name">CURATOR</span>
+                        <span id="npc-name"></span>
                     </div>
                     <div id="dialogue-text"></div>
-                    <button id="btn-next" class="img-btn hidden"><img src="assets/ui/text_next.png"></button>
+                    <button id="btn-next" class="img-btn hidden"><img src="assets/ui/text_next.png" alt="Next"></button>
                 </div>
             </div>
 
@@ -42,20 +42,36 @@
             <div id="source-modal" class="modal hidden">
                 <div class="modal-content">
                     <h2 id="source-title"></h2>
-                    <p id="source-type"></p>
                     <div id="source-image-container"></div>
                     <div id="source-description"></div>
+                    
+                    <div id="analysis-ui">
+                        <hr>
+                        <h4>Researcher's Analysis</h4>
+                        <p><strong>1. Source Type:</strong></p>
+                        <div class="analysis-row">
+                            <button class="skill-btn" data-type="primary" onclick="selectSkill('type', 'primary', this)">Primary Source</button>
+                            <button class="skill-btn" data-type="secondary" onclick="selectSkill('type', 'secondary', this)">Secondary Source</button>
+                        </div>
+                        <p><strong>2. HASS Category:</strong></p>
+                        <div class="analysis-row">
+                            <button class="skill-btn" data-cat="Social" onclick="selectSkill('cat', 'Social', this)">Social</button>
+                            <button class="skill-btn" data-cat="Environmental" onclick="selectSkill('cat', 'Environmental', this)">Environmental</button>
+                            <button class="skill-btn" data-cat="Cultural" onclick="selectSkill('cat', 'Cultural', this)">Cultural</button>
+                        </div>
+                    </div>
+
                     <div id="source-prompt-box">
-                        <strong>Analysis Prompt:</strong>
+                        <strong>Interpretation Prompt:</strong>
                         <p id="source-prompt"></p>
                     </div>
-                    <button id="btn-close-source" class="img-btn"><img src="assets/ui/text_continue.png"></button>
+                    <button id="btn-close-source" class="img-btn"><img src="assets/ui/text_continue.png" alt="Done"></button>
                 </div>
             </div>
 
             <div id="quiz-modal" class="modal hidden">
                 <div class="modal-content">
-                    <h3>Case Summary</h3>
+                    <h3>Case Summary Findings</h3>
                     <p id="quiz-question"></p>
                     <div id="quiz-options"></div>
                 </div>
@@ -64,10 +80,11 @@
             <div id="final-screen" class="overlay hidden">
                 <div class="modal-content">
                     <h1>Investigation Complete</h1>
-                    <p>Excellent work, Researcher. You have successfully analysed the sources!</p>
-                    <button id="btn-replay" class="img-btn"><img src="assets/ui/text_replay.png"></button>
+                    <p>Excellent work, Researcher. You have correctly analyzed the evidence and completed your report for the Regional Heritage Museum.</p>
+                    <button id="btn-replay" class="img-btn"><img src="assets/ui/text_replay.png" alt="Replay"></button>
                 </div>
             </div>
+
         </div>
     </div>
 
