@@ -5,18 +5,18 @@
     "guideId": "indigenous_cultures_head",
     "background": "assets/backgrounds/case_indigenous_cultures_bg.png",
     "hotspots": [
-      {"x": "10%", "y": "20%", "sourceId": "case1_source1"},
-      {"x": "40%", "y": "30%", "sourceId": "case1_source2"},
-      {"x": "15%", "y": "50%", "sourceId": "case1_source3"}
+      { "x": "10%", "y": "20%", "sourceId": "case1_source1" },
+      { "x": "40%", "y": "30%", "sourceId": "case1_source2" },
+      { "x": "15%", "y": "50%", "sourceId": "case1_source3" }
     ],
     "completionQuestion": {
-      "question": "Based on the evidence in this exhibit, which statement best summarizes the nature of Aboriginal and Torres Strait Islander cultures?",
+      "question": "Based on the sources in this gallery, which conclusion is best supported?",
       "options": [
-        "A. They are identical across the continent and focus only on historical exclusion.",
-        "B. They are diverse, distinct nations with unique laws and deep kinship connections to Country and totems.",
-        "C. They are primarily defined by modern symbols rather than ancient traditions."
+        "A. Aboriginal and Torres Strait Islander peoples all shared exactly the same culture across Australia.",
+        "B. Aboriginal and Torres Strait Islander cultures are diverse, deeply connected to Country, and continue to be recognised through respectful practices and storytelling.",
+        "C. Aboriginal and Torres Strait Islander culture matters mainly because it belongs to the distant past."
       ],
-      "correct": "B. They are diverse, distinct nations with unique laws and deep kinship connections to Country and totems."
+      "correct": "B. Aboriginal and Torres Strait Islander cultures are diverse, deeply connected to Country, and continue to be recognised through respectful practices and storytelling."
     }
   },
   {
@@ -25,18 +25,18 @@
     "guideId": "trade_head",
     "background": "assets/backgrounds/case_trade_bg.png",
     "hotspots": [
-      {"x": "20%", "y": "25%", "sourceId": "case2_source1"},
-      {"x": "45%", "y": "35%", "sourceId": "case2_source2"},
-      {"x": "15%", "y": "45%", "sourceId": "case2_source3"}
+      { "x": "20%", "y": "25%", "sourceId": "case2_source1" },
+      { "x": "45%", "y": "35%", "sourceId": "case2_source2" },
+      { "x": "15%", "y": "45%", "sourceId": "case2_source3" }
     ],
     "completionQuestion": {
-      "question": "What do these sources prove about the scale and complexity of First Nations trade networks?",
+      "question": "What is the strongest conclusion you can draw from these three sources?",
       "options": [
-        "A. Trade was limited to very short distances and only occurred between immediate neighbors.",
-        "B. Networks were sophisticated, involving international partners and goods traveling up to 1000 km across the continent.",
-        "C. Trading only occurred during the monsoon season and did not involve local Aboriginal people."
+        "A. First Nations trade mostly happened over short distances and involved very little planning.",
+        "B. First Nations trade networks were complex, long-distance, and connected people within Australia and beyond it.",
+        "C. Meaningful trade in Australia only began after European settlement."
       ],
-      "correct": "B. Networks were sophisticated, involving international partners and goods traveling up to 1000 km across the continent."
+      "correct": "B. First Nations trade networks were complex, long-distance, and connected people within Australia and beyond it."
     }
   },
   {
@@ -45,18 +45,18 @@
     "guideId": "torres_strait_head",
     "background": "assets/backgrounds/case_torres_strait_bg.png",
     "hotspots": [
-      {"x": "25%", "y": "20%", "sourceId": "case3_source1"},
-      {"x": "40%", "y": "30%", "sourceId": "case3_source2"},
-      {"x": "10%", "y": "55%", "sourceId": "case3_source3"}
+      { "x": "25%", "y": "20%", "sourceId": "case3_source1" },
+      { "x": "40%", "y": "30%", "sourceId": "case3_source2" },
+      { "x": "10%", "y": "55%", "sourceId": "case3_source3" }
     ],
     "completionQuestion": {
-      "question": "How has the identity and legal recognition of Torres Strait Islander people evolved based on these records?",
+      "question": "Taken together, what do these sources suggest about Torres Strait Islander life and identity?",
       "options": [
-        "A. Their identity is strictly tied to 19th-century annexation and the concept of terra nullius.",
-        "B. They have maintained a unique seafaring culture and successfully fought for legal recognition of their prior land rights.",
-        "C. Their culture is primarily expressed through modern plastic masks rather than traditional ritual."
+        "A. Torres Strait Islander culture was only loosely connected to the sea and travel.",
+        "B. Torres Strait Islander people developed a distinct culture shaped by sea, navigation, ceremony and island identity.",
+        "C. Torres Strait Islander history can be understood through one object or symbol alone."
       ],
-      "correct": "B. They have maintained a unique seafaring culture and successfully fought for legal recognition of their prior land rights."
+      "correct": "B. Torres Strait Islander people developed a distinct culture shaped by sea, navigation, ceremony and island identity."
     }
   }
 ]
