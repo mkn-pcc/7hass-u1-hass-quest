@@ -1,1 +1,39 @@
-
+{
+  "case1_source1": {
+    "title": "AIATSIS Map",
+    "type": "Image source",
+    "image": "assets/sources/case1_aiatsis_map.png",
+    "caption": "Aboriginal and Torres Strait Islander Australia is made up of many different and distinct groups, each with their own culture, language and laws.",
+    "prompt": "What does this suggest about the diversity of First Nations peoples?"
+  },
+  "case1_source2": {
+    "title": "Acknowledging Country",
+    "type": "Text source",
+    "image": null,
+    "caption": "Incorporating protocols into official meetings recognises Aboriginal and Torres Strait Islander peoples as Traditional Owners and shows respect.",
+    "prompt": "Why is acknowledging Country more than just a formal routine?"
+  },
+  "case1_source3": {
+    "title": "Birds, Stories and Totems",
+    "type": "Text source",
+    "image": null,
+    "caption": "First Nations stories reflect a powerful worldview towards Country, valuing relationships between all living things.",
+    "prompt": "How do stories and totems help pass on culture?"
+  },
+  "case2_source1": {
+    "title": "Makasar Traders",
+    "type": "Image source",
+    "image": "assets/sources/case2_makasar_traders.png",
+    "caption": "From 1700, fishermen from Makassar (Indonesia) traded and worked with local Aboriginal people in northern Australia.",
+    "prompt": "What does this suggest about international connections?"
+  },
+  "case2_source2": {
+    "title": "Trade and Transformation",
+    "type": "Text source",
+    "image": null,
+    "caption": "Fishermen harvested trepang (sea cucumber), processed it on shore, and traded it to China using monsoon winds.",
+    "prompt": "What details show this trade was organised and regular?"
+  },
+  "case2_source3": {
+    "title": "Long Trade Routes",
+    "type
