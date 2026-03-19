@@ -3,55 +3,79 @@
     "id": "case1_source1",
     "title": "AIATSIS Map",
     "correctType": "primary",
-    "correctCats": ["Cultural", "Social"],
+    "correctCats": ["Social", "Cultural"],
     "image": "assets/sources/case1_aiatsis_map.png",
-    "caption": "Map of Indigenous Australia showing the hundreds of distinct nations and language groups.",
-    "prompt": "How does this map prove the diversity of First Nations groups?"
+    "caption": "Australia’s First Peoples have been living on the Australian continent for millennia. Aboriginal and Torres Strait Islander Australia is made up of many different and distinct groups, each with their own culture, customs, language and laws. They are the world’s oldest surviving culture; cultures that continue to be expressed in dynamic and contemporary ways.",
+    "sourceLabel": "AIATSIS",
+    "prompt": "What does this suggest about the diversity of First Nations groups?",
+    "insightQuestion": "What defines the diversity shown here?",
+    "insights": ["Many different and distinct groups with unique laws.", "One single culture across the whole continent."],
+    "correctInsight": "Many different and distinct groups with unique laws."
   },
   {
     "id": "case1_source2",
     "title": "Acknowledging Country",
     "correctType": "secondary",
-    "correctCats": ["Cultural"],
+    "correctCats": ["Social", "Cultural"],
     "image": null,
-    "caption": "A text describing the protocols and reasons for Acknowledging Country as a sign of respect.",
-    "prompt": "Why is this protocol a Cultural necessity today?"
+    "caption": "Aboriginal and Torres Strait Islander peoples have experienced a long history of exclusion from Australian history books, the Australian flag, the Australian anthem and for many years, Australian democracy. This history of dispossession and colonisation lies at the heart of the disparity between Aboriginal and Torres Strait Islander and other Australians today. Including recognition in events, meetings and national symbols contributes to ending the exclusion that has been so damaging. Incorporating protocols recognises Aboriginal and Torres Strait Islander peoples as the Traditional Owners of land and shows respect.",
+    "sourceLabel": "Reconciliation Australia",
+    "prompt": "Why is this protocol a Social necessity today?",
+    "insightQuestion": "According to the text, why use these protocols?",
+    "insights": ["To end a history of exclusion and show respect.", "To strictly follow a legal government rule."],
+    "correctInsight": "To end a history of exclusion and show respect."
   },
   {
     "id": "case1_source3",
-    "title": "Totems and Culture",
+    "title": "Birds, Stories and Totems",
     "correctType": "secondary",
     "correctCats": ["Cultural", "Environmental"],
     "image": null,
-    "caption": "Information on how totems link people to specific animals and parts of the environment.",
-    "prompt": "How do totems preserve both culture and nature?"
+    "caption": "Australia's native birds feature prominently in First Nations stories. These stories are vital to the sharing of First Nations knowledge, language and culture. They reflect a powerful worldview towards Country, which values and respects the relationships between all living things. Many birds are also revered and respected as totems. Aunty Rhonda Radley explains: 'A totem is something that we look after... totem is like kin, like family. And as you look after family, you would look after your totem. And that means looking after its habitat, making sure that food's available for them.'",
+    "sourceLabel": "Australian Museum",
+    "prompt": "How do totems preserve both culture and nature?",
+    "insightQuestion": "How does Aunty Rhonda describe a totem?",
+    "insights": ["Like kin or family that must be looked after.", "A simple decoration for dances and art."],
+    "correctInsight": "Like kin or family that must be looked after."
   },
   {
     "id": "case2_source1",
     "title": "Makasar Traders",
     "correctType": "primary",
-    "correctCats": ["Social", "Economic"],
+    "correctCats": ["Social"],
     "image": "assets/sources/case2_makasar_traders.png",
-    "caption": "An artwork depicting Macassan fishermen interacting with Aboriginal people in Northern Australia.",
-    "prompt": "What does this tell us about international Social connections?"
+    "caption": "Macassans at Victoria, Port Essington by HS Melville. From at least 1700 until 1907, hundreds of fishermen sailed each year from Makassar on the island of Sulawesi (now Indonesia) to the northern Australian coast, an area they called ‘Marege’. The fishermen arrived each December and camped along the Arnhem Land coast, catching, boiling and drying trepang. They met, traded and worked with local Aboriginal people.",
+    "sourceLabel": "National Museum of Australia",
+    "prompt": "What does this tell us about international connections?",
+    "insightQuestion": "How did the fishermen interact with local people?",
+    "insights": ["They met, traded, and worked together.", "They avoided all contact with local groups."],
+    "correctInsight": "They met, traded, and worked together."
   },
   {
     "id": "case2_source2",
-    "title": "Monsoon Trade",
+    "title": "Trade and Transformation",
     "correctType": "secondary",
-    "correctCats": ["Environmental", "Economic"],
+    "correctCats": ["Environmental"],
     "image": null,
-    "caption": "Details on how the monsoon winds dictated the timing of the trepang trade.",
-    "prompt": "How did the Environment dictate the timing of ancient trade?"
+    "caption": "The months that the Makasar spent harvesting were busy ones. Fishermen speared trepang from their praus (boats) or dived to spike them with weighted harpoons. On shore, trepang were gutted and boiled in iron cauldrons, then buried in hot sand to cool. Finally, they were dried or smoked over slow fires. Each April, as the monsoon winds began to blow, the fishermen departed, returning to Makassar with holds carrying trepang to be traded north to China.",
+    "sourceLabel": "National Museum of Australia",
+    "prompt": "How did the environment dictate the timing of trade?",
+    "insightQuestion": "What determined when the traders left for home?",
+    "insights": ["The arrival of the April monsoon winds.", "The cooling of the sand on the beach."],
+    "correctInsight": "The arrival of the April monsoon winds."
   },
   {
     "id": "case2_source3",
     "title": "Axe Heads Route",
     "correctType": "secondary",
-    "correctCats": ["Social", "Economic"],
+    "correctCats": ["Social"],
     "image": null,
-    "caption": "A report on stone axe heads being traded over 1000km from their source quarry.",
-    "prompt": "What does the 1000km distance suggest about Social networks?"
+    "caption": "Ground-edged axes appeared 4,500 years ago. Known as a mogo by the Gadigal, they were used as tools to make nawi (bark canoes) as well as to cut wood, hunt or build shelters. Made from strong igneous or metamorphic rock, they were traded across nations from quarry sites. Research shows that trade routes of up to 200 km were not uncommon and one axe head in the museum’s collection travelled 1000 km from its source site.",
+    "sourceLabel": "Australian Museum",
+    "prompt": "What does the 1000km distance suggest about social networks?",
+    "insightQuestion": "How far did the furthest axe head travel?",
+    "insights": ["1000 km from its source site.", "Only 45 km within a single language group."],
+    "correctInsight": "1000 km from its source site."
   },
   {
     "id": "case3_source1",
@@ -59,8 +83,12 @@
     "correctType": "secondary",
     "correctCats": ["Cultural"],
     "image": null,
-    "caption": "A description of the Torres Strait Islander flag and what the blue, green, and black represent.",
-    "prompt": "How does the flag represent Cultural identity?"
+    "caption": "The Torres Strait Islander flag design was adopted in 1992. The green stripes represent the land, the black stripes represent the people, and the blue represents the sea. In July 1995, the Government decided the flag should be proclaimed a 'Flag of Australia' under section 5 of the Flags Act 1953. It was so proclaimed by the Governor General on 14 July 1995.",
+    "sourceLabel": "TSRA",
+    "prompt": "How does the flag represent Cultural identity?",
+    "insightQuestion": "What do the green and blue stripes represent?",
+    "insights": ["Green for land and blue for the sea.", "Green for forests and blue for the sky."],
+    "correctInsight": "Green for land and blue for the sea."
   },
   {
     "id": "case3_source2",
@@ -68,8 +96,12 @@
     "correctType": "primary",
     "correctCats": ["Cultural"],
     "image": "assets/sources/case3_crocodile_mask.png",
-    "caption": "A traditional mask made from turtle shell representing an ancestor totem.",
-    "prompt": "What is the Cultural significance of the crocodile totem here?"
+    "caption": "Masks made of turtle shell were used in rituals and ceremonies in the Torres Strait Islands and made to represent ancestors with an associated totem, frequently the crocodile. The masks sometimes have the form of the human face or animals such as birds, fish or reptiles. Similar masks and headdresses made of plywood, bamboo or plastic continue to be created and used today.",
+    "sourceLabel": "Australian Museum",
+    "prompt": "What is the significance of the totem here?",
+    "insightQuestion": "What was the purpose of these turtle shell masks?",
+    "insights": ["To represent ancestors in rituals and ceremonies.", "To serve as simple fishing equipment."],
+    "correctInsight": "To represent ancestors in rituals and ceremonies."
   },
   {
     "id": "case3_source3",
@@ -77,7 +109,11 @@
     "correctType": "primary",
     "correctCats": ["Environmental", "Social"],
     "image": "assets/sources/case3_traditional_canoe.png",
-    "caption": "A photo of a traditional Saibai Island canoe used for long-distance seafaring.",
-    "prompt": "How did this technology allow for Environmental navigation?"
+    "caption": "Dauarti canoe belonging to Bamaga Family, Saibai, Torres Strait Island, June 1931. The Torres Strait Islands were annexed by the British colony of Queensland in 1879 under the legal notion of terra nullius. It was not until a legal challenge from Eddie Mabo and four other Torres Strait Islanders concluded in 1992 that the High Court of Australia formally recognised the prior land rights of indigenous people.",
+    "sourceLabel": "Queensland Government",
+    "prompt": "How did technology allow for navigation?",
+    "insightQuestion": "What did the High Court recognise in 1992?",
+    "insights": ["The prior land rights of indigenous people.", "The formal annexation of Saibai Island."],
+    "correctInsight": "The prior land rights of indigenous people."
   }
 ]
