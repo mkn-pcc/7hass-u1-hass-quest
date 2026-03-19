@@ -1,21 +1,30 @@
 {
   "hub_intro": [
-    "Welcome to the Regional Heritage Museum. I'm the Curator.",
-    "We have three new exhibits focused on First Nations history and HASS skills.",
-    "Choose a case file to begin your investigation. Categorize every source you find!"
+    "Welcome to the Parklands Regional Heritage Museum! I’m Stephanie, Curator and Cultural Sensitivity Officer.",
+    "Three new case files have just landed on my desk, and each one needs a careful eye for evidence, context and respectful interpretation.",
+    "Choose an exhibit to investigate. Examine every source closely and think about what it can actually tell you!"
   ],
   "hub_return": [
-    "Welcome back, Researcher. Which case will you document next?"
+    "Ah, you're back! Good. Which case file are you tackling next?"
   ],
   "cases": {
     "case1": {
-      "intro": ["I'm the Exhibit Specialist. We're looking at the diversity of Indigenous cultures.", "Find the three sources in this room. Remember to identify if they are Primary or Secondary!"]
+      "intro": [
+        "Hi there, junior researcher! I’m Miranda, Lead Researcher for the Museum’s Indigenous History Unit. This case is all about diversity, culture and the ways knowledge is carried across time.",
+        "Track down the three sources in this gallery and look closely at what each one reveals. Ask yourself not just what you can see but what the source helps you understand."
+      ]
     },
     "case2": {
-      "intro": ["Research Lead here. We're investigating ancient trade routes.", "Look for evidence of international connections. Is the evidence Social or Environmental?"]
+      "intro": [
+        "Hey. It's good to meet you. I'm Raphael, the team's Tools and Tradecraft Specialist. This exhibit focuses on trade, exchange and the connections First Nations peoples built across vast distances.",
+        "Find the three sources in this room and look for evidence of movement, contact and sophisticated trade networks. Strong historians notice details other people miss."
+      ]
     },
     "case3": {
-      "intro": ["Maritime Curator here. The Torres Strait has a seafaring history like no other.", "Check the artefacts. How do they show the Islander connection to the sea?"]
+      "intro": [
+        "Hello, my friend. I'm Grayson—First Nations archaeologist, specialising in the Torres Strait. This case explores navigation, ceremony and the deep connection between Islander life and the sea.",
+        "Inspect the three sources carefully. Think about what they suggest about identity, travel, symbolism and the knowledge needed to live well in the Torres Strait."
+      ]
     }
   }
 }
