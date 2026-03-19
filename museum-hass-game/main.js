@@ -62,6 +62,7 @@ function setupEventListeners() {
     document.getElementById('btn-start').onclick = startToHub;
     document.getElementById('btn-help').onclick = () => alert("Analyse three sources in each exhibit to complete the case file.");
     document.getElementById('btn-close-source').onclick = closeSource;
+    document.getElementById('btn-dismiss-source').onclick = dismissSource; 
     document.getElementById('btn-replay').onclick = () => location.reload();
 }
 
@@ -107,7 +108,7 @@ function renderHub(skipDialogue = false) {
         
         if (state.completedCases.includes(c.id)) {
             btn.style.filter = 'grayscale(1) brightness(0.5)';
-            btn.style.animation = 'none'; // Stop pulsing if complete
+            btn.style.animation = 'none'; 
             btn.innerHTML = `<img src="assets/ui/case_complete_stamp.png" style="width:100%; pointer-events:none;">`;
         } else {
             btn.onclick = () => enterCase(c);
@@ -132,7 +133,7 @@ function renderHub(skipDialogue = false) {
 function enterCase(caseData) {
     state.currentScene = 'case';
     state.activeCase = caseData;
-    state.viewedSources = []; // Reset viewed sources for this attempt
+    state.viewedSources = []; 
     
     el.bg.style.backgroundImage = `url('${caseData.background}')`;
     el.hotspots.innerHTML = '';
@@ -181,10 +182,10 @@ function setDialogue(npcId, setKey, caseId = null) {
 }
 
 function updateDialogueBox() {
-    el.text.innerText = state.currentDialogueSet[state.dialogueIndex];
+    // UPDATED: Now uses innerHTML to allow markup like <b> and <i> in dialogue
+    el.text.innerHTML = state.currentDialogueSet[state.dialogueIndex];
     el.btnNext.classList.remove('hidden');
 
-    // If it's the last line of dialogue, change the button to close it
     if (state.dialogueIndex >= state.currentDialogueSet.length - 1) {
         el.btnNext.innerHTML = `<img src="assets/ui/text_continue.png" alt="Done">`;
         el.btnNext.onclick = closeDialogue;
@@ -218,20 +219,40 @@ function openSource(sourceId) {
     state.activeSource = source;
     state.currentAnalysis = { type: null, cat: null, insight: null };
     
-    document.getElementById('source-title').innerText = source.title;
+    // UPDATED: Now uses innerHTML to allow markup in titles if needed
+    document.getElementById('source-title').innerHTML = source.title;
     
-    const imgCont = document.getElementById('source-image-container');
-    imgCont.innerHTML = source.image ? `<img src="${source.image}">` : '';
+    // BUILD DYNAMIC CONTENT BLOCKS
+    const contentWrapper = document.getElementById('source-content-wrapper');
+    contentWrapper.innerHTML = ''; 
     
-    // Inject the provenance label above the caption
-    document.getElementById('source-description').innerHTML = `
+    // 1. Build Image Block (if it exists)
+    if (source.image) {
+        const imgBlock = document.createElement('div');
+        imgBlock.className = 'source-block';
+        imgBlock.style.order = source.focus === 'text' ? 2 : 1; 
+        imgBlock.innerHTML = `
+            <h4 class="block-label">Visual Evidence</h4>
+            <img src="${source.image}">
+        `;
+        contentWrapper.appendChild(imgBlock);
+    }
+
+    // 2. Build Text Block
+    const textBlock = document.createElement('div');
+    textBlock.className = 'source-block';
+    textBlock.style.order = source.focus === 'text' ? 1 : 2; 
+    textBlock.innerHTML = `
+        <h4 class="block-label">Written Evidence & Context</h4>
         <p style="margin-top: 0; color: var(--ui-gold); font-size: 1.1rem;">
             <strong>Source Origin:</strong> ${source.sourceLabel || 'Unknown'}
         </p>
         <p>${source.caption}</p>
     `;
+    contentWrapper.appendChild(textBlock);
     
-    document.getElementById('source-prompt').innerText = source.prompt;
+    // UPDATED: Now uses innerHTML to allow markup in prompts
+    document.getElementById('source-prompt').innerHTML = source.prompt;
 
     let insightSection = document.getElementById('insight-section');
     if (!insightSection) {
@@ -240,41 +261,40 @@ function openSource(sourceId) {
         document.getElementById('analysis-ui').appendChild(insightSection);
     }
     
+    // UPDATED: Allows markup in the insight question text
     insightSection.innerHTML = `
         <p><strong>3. Content Insight:</strong> ${source.insightQuestion}</p>
         <div class="analysis-row" id="insight-buttons"></div>
     `;
 
-    // Shuffle the insights array so the correct answer isn't always on the left
     const shuffledInsights = [...source.insights].sort(() => Math.random() - 0.5);
 
     shuffledInsights.forEach(opt => {
         const b = document.createElement('button');
         b.className = 'skill-btn';
-        b.innerText = opt;
+        b.innerHTML = opt; // UPDATED to innerHTML for insight button text
         b.onclick = () => selectSkill('insight', opt, b);
         document.getElementById('insight-buttons').appendChild(b);
     });
 
-    // Clear previous selections visually
     document.querySelectorAll('.skill-btn').forEach(b => b.classList.remove('selected'));
     
-    // FIX: Force the modal content to scroll to the top
     document.querySelector('#source-modal .modal-content').scrollTop = 0;
-
     el.sourceModal.classList.remove('hidden');
+}
+
+function dismissSource() {
+    el.sourceModal.classList.add('hidden');
 }
 
 function closeSource() {
     const s = state.activeSource;
     
-    // Form Validation
     if (!state.currentAnalysis.type || !state.currentAnalysis.cat || !state.currentAnalysis.insight) {
-        alert("Researcher! Complete all three analysis steps before continuing.");
+        alert("Researcher! Complete all three analysis steps before submitting.");
         return;
     }
 
-    // Checking answers
     if (state.currentAnalysis.type !== s.correctType || 
         !s.correctCats.includes(state.currentAnalysis.cat) || 
         state.currentAnalysis.insight !== s.correctInsight) {
@@ -282,7 +302,6 @@ function closeSource() {
         return;
     }
 
-    // Success! 
     el.sourceModal.classList.add('hidden');
     
     if (!state.viewedSources.includes(s.id)) {
@@ -302,36 +321,33 @@ function closeSource() {
 // --- QUIZ ---
 function showQuiz() {
     const quiz = state.activeCase.completionQuestion;
-    document.getElementById('quiz-question').innerText = quiz.question;
+    
+    // UPDATED: Now uses innerHTML to allow markup in quiz questions
+    document.getElementById('quiz-question').innerHTML = quiz.question;
     
     const optCont = document.getElementById('quiz-options');
     optCont.innerHTML = '';
     
-    // Shuffle the quiz options so the correct answer moves around
     const shuffledOptions = [...quiz.options].sort(() => Math.random() - 0.5);
     
     shuffledOptions.forEach(opt => {
         const b = document.createElement('button');
         b.className = 'quiz-btn';
-        b.innerText = opt;
+        b.innerHTML = opt; // UPDATED to innerHTML for quiz options
         b.onclick = () => {
             if (opt === quiz.correct) {
-                // Correct Summary
                 state.completedCases.push(state.activeCase.id);
                 el.quizModal.classList.add('hidden');
                 el.progressText.innerText = `Cases Complete: ${state.completedCases.length}/3`;
                 renderHub();
             } else {
-                // Incorrect Summary
                 alert("Incorrect. The museum requires accuracy. Think carefully about what the sources revealed.");
             }
         };
         optCont.appendChild(b);
     });
     
-    // FIX: Force the quiz modal content to scroll to the top
     document.querySelector('#quiz-modal .modal-content').scrollTop = 0;
-
     el.quizModal.classList.remove('hidden');
 }
 
