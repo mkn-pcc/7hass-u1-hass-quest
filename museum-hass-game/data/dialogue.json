@@ -1,1 +1,14 @@
-
+{
+  "intro": [
+    "Welcome to the Regional Museum, Researcher.",
+    "I'm the Head Curator. We need help verifying three major exhibits.",
+    "Your job is to examine the sources, identify the evidence, and draw the right conclusions.",
+    "Select a case file from the table to begin your investigation."
+  ],
+  "outro": [
+    "Outstanding work, Researcher!",
+    "You have successfully analysed the sources and verified our history exhibits.",
+    "The museum is ready to open to the public thanks to your evidence-based approach.",
+    "Final Report Status: COMPLETE."
+  ]
+}
