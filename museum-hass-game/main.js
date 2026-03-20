@@ -182,7 +182,6 @@ function setDialogue(npcId, setKey, caseId = null) {
 }
 
 function updateDialogueBox() {
-    // UPDATED: Now uses innerHTML to allow markup like <b> and <i> in dialogue
     el.text.innerHTML = state.currentDialogueSet[state.dialogueIndex];
     el.btnNext.classList.remove('hidden');
 
@@ -219,7 +218,6 @@ function openSource(sourceId) {
     state.activeSource = source;
     state.currentAnalysis = { type: null, cat: null, insight: null };
     
-    // UPDATED: Now uses innerHTML to allow markup in titles if needed
     document.getElementById('source-title').innerHTML = source.title;
     
     // BUILD DYNAMIC CONTENT BLOCKS
@@ -251,7 +249,6 @@ function openSource(sourceId) {
     `;
     contentWrapper.appendChild(textBlock);
     
-    // UPDATED: Now uses innerHTML to allow markup in prompts
     document.getElementById('source-prompt').innerHTML = source.prompt;
 
     let insightSection = document.getElementById('insight-section');
@@ -261,7 +258,6 @@ function openSource(sourceId) {
         document.getElementById('analysis-ui').appendChild(insightSection);
     }
     
-    // UPDATED: Allows markup in the insight question text
     insightSection.innerHTML = `
         <p><strong>3. Content Insight:</strong> ${source.insightQuestion}</p>
         <div class="analysis-row" id="insight-buttons"></div>
@@ -272,15 +268,18 @@ function openSource(sourceId) {
     shuffledInsights.forEach(opt => {
         const b = document.createElement('button');
         b.className = 'skill-btn';
-        b.innerHTML = opt; // UPDATED to innerHTML for insight button text
+        b.innerHTML = opt; 
         b.onclick = () => selectSkill('insight', opt, b);
         document.getElementById('insight-buttons').appendChild(b);
     });
 
     document.querySelectorAll('.skill-btn').forEach(b => b.classList.remove('selected'));
     
-    document.querySelector('#source-modal .modal-content').scrollTop = 0;
+    // THE SCROLL FIX: Show modal first, then delay scroll by 10ms
     el.sourceModal.classList.remove('hidden');
+    setTimeout(() => {
+        document.querySelector('#source-modal .modal-content').scrollTop = 0;
+    }, 10);
 }
 
 function dismissSource() {
@@ -322,7 +321,6 @@ function closeSource() {
 function showQuiz() {
     const quiz = state.activeCase.completionQuestion;
     
-    // UPDATED: Now uses innerHTML to allow markup in quiz questions
     document.getElementById('quiz-question').innerHTML = quiz.question;
     
     const optCont = document.getElementById('quiz-options');
@@ -333,7 +331,7 @@ function showQuiz() {
     shuffledOptions.forEach(opt => {
         const b = document.createElement('button');
         b.className = 'quiz-btn';
-        b.innerHTML = opt; // UPDATED to innerHTML for quiz options
+        b.innerHTML = opt; 
         b.onclick = () => {
             if (opt === quiz.correct) {
                 state.completedCases.push(state.activeCase.id);
@@ -347,8 +345,11 @@ function showQuiz() {
         optCont.appendChild(b);
     });
     
-    document.querySelector('#quiz-modal .modal-content').scrollTop = 0;
+    // THE SCROLL FIX: Show modal first, then delay scroll by 10ms
     el.quizModal.classList.remove('hidden');
+    setTimeout(() => {
+        document.querySelector('#quiz-modal .modal-content').scrollTop = 0;
+    }, 10);
 }
 
 init();
